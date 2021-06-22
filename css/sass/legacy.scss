@@ -3,14 +3,14 @@
   border-radius: 5px 0 0 5px;
   padding: 1rem;
   color: $white;
-  font-family: 'Lato';
+  font-family: $lato-font;
 
   &:focus {
     box-shadow: none;
     color: $white;
   }
   &::placeholder {
-    font-family: Lato;
+    font-family: $lato-font;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -23,4 +23,12 @@
 %btnDropdown {
   border-radius: 0 5px 5px 0;
   padding: 1rem;
+}
+%card-font {
+  font-family: $lato-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: $black;
 }

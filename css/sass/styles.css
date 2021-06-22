@@ -8248,7 +8248,7 @@ h3 {
   color: #FFFFFF;
 }
 .inputDropdownPrimary::placeholder, .inputDropdownGreen::placeholder, .inputDropdownOrange::placeholder {
-  font-family: Lato;
+  font-family: "Lato";
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -8260,6 +8260,15 @@ h3 {
 .btnDropdownPrimary, .btnDropdownGreen, .btnDropdownOrange {
   border-radius: 0 5px 5px 0;
   padding: 1rem;
+}
+
+.card-ingredients, .card-description, .card-time, .card-title {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
 }
 
 * {
@@ -8315,6 +8324,10 @@ header {
   padding: 0.5rem 0;
 }
 
+.no-border {
+  border: none;
+}
+
 /** Search bar */
 .inputGroupBorder {
   background: #E7E7E7;
@@ -8332,6 +8345,7 @@ header {
   line-height: 22px;
   color: #000000;
   opacity: 0.25;
+  text-align: left;
 }
 
 /** Glyphicon search bar */
@@ -8366,16 +8380,18 @@ header {
 /*--------------------------------------------------------------
 #  DROPDOWN SEARCH
 --------------------------------------------------------------*/
+.contents {
+  display: contents;
+}
+
+.dropdownSearch {
+  width: 200px;
+  padding-bottom: 0;
+  margin-left: 1rem;
+}
+
 #icon-dropdown-up {
   display: none;
-}
-
-.w-200 {
-  width: 200px;
-}
-
-.pb-0 {
-  padding-bottom: 0;
 }
 
 .inputDropdownPrimary, .inputDropdownGreen, .inputDropdownOrange {
@@ -8420,6 +8436,9 @@ header {
   padding: 0;
   margin: 0;
   width: 200px;
+  margin-top: -3px;
+  position: absolute;
+  z-index: 20;
 }
 .dropDownList li a {
   font-family: "Lato";
@@ -8445,5 +8464,34 @@ header {
 }
 
 /** END DROPDOWN SEARCH */
+.card-body-style {
+  background: #E7E7E7;
+  border-radius: 0 0 5px 5px;
+}
+
+.card-time {
+  font-weight: bold;
+}
+
+.clockIcon {
+  margin-top: -2px;
+  margin-left: 0.25rem;
+}
+
+.card-description {
+  font-family: "Roboto";
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.card-ingredients {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0;
+}
+.card-ingredients span {
+  font-weight: normal;
+}
 
 /*# sourceMappingURL=styles.css.map */

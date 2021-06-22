@@ -44,15 +44,19 @@ header {
 }
 
 .p-05 {
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
+.no-border {
+  border: none;
+}
+
 
 /** Search bar */
 .inputGroupBorder {
   background: $grey;
   border: none;
   border-radius: 5px 0 0 5px;
-  padding: .75rem;
+  padding: 0.75rem;
 }
 .inputGroupBorder::placeholder {
   font-family: Lato;
@@ -63,13 +67,14 @@ header {
   line-height: 22px;
   color: $black;
   opacity: 0.25;
+  text-align: left;
 }
 
 /** Glyphicon search bar */
 .buttonGroupBorder {
   background: $grey;
   border-radius: 0 5px 5px 0;
-  padding: .75rem;
+  padding: 0.75rem;
 }
 
 .btnDefault {
@@ -97,16 +102,18 @@ header {
 /*--------------------------------------------------------------
 #  DROPDOWN SEARCH
 --------------------------------------------------------------*/
+.contents {
+  display: contents;
+}
+.dropdownSearch {
+  width: 200px;
+  padding-bottom: 0;
+  margin-left: 1rem;
+}
+
 #icon-dropdown-up {
   display: none;
 }
-.w-200{
-  width: 200px;
-}
-.pb-0 {
-  padding-bottom: 0;
-}
-
 
 .inputDropdownPrimary, .inputDropdownGreen, .inputDropdownOrange {
   @extend %inputDropDown;
@@ -146,6 +153,9 @@ header {
   padding: 0;
   margin: 0;
   width: 200px;
+  margin-top: -3px;
+  position: absolute;
+  z-index: 20;
 
   li a {
     font-family: $lato-font;
@@ -168,4 +178,44 @@ header {
 #dropdownOrangeList {
   background-color: $orange;
 }
+
 /** END DROPDOWN SEARCH */
+
+
+.card-body-style {
+  background: $grey;
+  border-radius: 0 0 5px 5px;
+}
+
+.card-title {
+  @extend %card-font;
+}
+
+.card-time {
+  @extend %card-font;
+  font-weight: bold;
+}
+
+.clockIcon {
+  margin-top: -2px;
+  margin-left: 0.25rem;
+}
+
+.card-description {
+  @extend %card-font;
+  font-family: $roboto-font;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.card-ingredients {
+  @extend %card-font;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0;
+
+  span {
+    font-weight: normal;
+  }
+}
