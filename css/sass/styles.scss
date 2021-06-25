@@ -2,6 +2,7 @@
 @import "./variables.scss"; //Variables
 @import "./legacy.scss"; //Legacy Props
 
+
 * {box-sizing: border-box;}
 
 html {
@@ -44,19 +45,45 @@ header {
 }
 
 .p-05 {
-  padding: 0.5rem 0;
+  padding: .5rem 0;
 }
 .no-border {
   border: none;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+
+.none {
+  display: none;
+}
+
+.btnGreen {
+  background-color: $green!important;
+  border-color: $green!important;
+}
+
+.btnBlue {
+  background-color: $blue!important;
+  border-color: $blue!important;
+}
+
+.btnOrange {
+  background-color: $orange!important;
+  border-color: $orange!important;
+}
 
 /** Search bar */
 .inputGroupBorder {
   background: $grey;
   border: none;
   border-radius: 5px 0 0 5px;
-  padding: 0.75rem;
+  padding: .75rem;
 }
 .inputGroupBorder::placeholder {
   font-family: Lato;
@@ -74,7 +101,7 @@ header {
 .buttonGroupBorder {
   background: $grey;
   border-radius: 0 5px 5px 0;
-  padding: 0.75rem;
+  padding: .75rem;
 }
 
 .btnDefault {
@@ -106,7 +133,6 @@ header {
   display: contents;
 }
 .dropdownSearch {
-  width: 200px;
   padding-bottom: 0;
   margin-left: 1rem;
 }
@@ -115,67 +141,69 @@ header {
   display: none;
 }
 
-.inputDropdownPrimary, .inputDropdownGreen, .inputDropdownOrange {
+.inputDropdownIngredient, .inputDropdownAppareil, .inputDropdownUstensil {
   @extend %inputDropDown;
   background: $blue;
 }
-.inputDropdownGreen {
+.inputDropdownAppareil {
   background: $green;
 }
-.inputDropdownOrange {
+.inputDropdownUstensil {
   background: $orange;
 }
 
-.inputDropdownPrimary:focus {
+.inputDropdownIngredient:focus {
   background: $blue;
 }
-.inputDropdownGreen:focus {
+.inputDropdownAppareil:focus {
   background: $green;
 }
-.inputDropdownOrange:focus {
+.inputDropdownUstensil:focus {
   background: $orange;
 }
 
-.btnDropdownPrimary, .btnDropdownGreen, .btnDropdownOrange {
+.btnDropdownIngredient, .btnDropdownAppareil, .btnDropdownUstensil {
   @extend %btnDropdown;
   background: $blue;
 }
-.btnDropdownGreen {
+.btnDropdownAppareil {
   background: #68D9A4;
 }
-.btnDropdownOrange {
+.btnDropdownUstensil {
   background: #ED6454;
 }
 
 .dropDownList {
   display: none;
+  columns: 4;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  width: 200px;
   margin-top: -3px;
   position: absolute;
   z-index: 20;
+  width: max-content;
 
   li a {
     font-family: $lato-font;
     color: $white;
     margin-top: 3px;
     border-radius: 5px;
-    padding: 16px;
+    margin-top: 0px;
+    padding: 10px;
     text-decoration: none;
     display: block;
     border: none;
   }
 }
 
-#dropdownPrimaryList {
+#dropdownIngredientList {
   background-color: $blue;
 }
-#dropdownGreenList {
+#dropdownAppareilList {
   background-color: $green;
 }
-#dropdownOrangeList {
+#dropdownUstensilList {
   background-color: $orange;
 }
 
@@ -215,7 +243,20 @@ header {
   line-height: 14px;
   margin: 0;
 
+  li {
+    margin-top: 3px;
+  }
+
   span {
     font-weight: normal;
   }
+}
+
+#recipes-not-found {
+  display: none;
+  background: #E7E7E7;
+  padding: 2rem;
+  margin: 0;
+  font-family: $lato-font;
+  font-size: 1rem;
 }

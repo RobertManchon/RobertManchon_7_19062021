@@ -8236,18 +8236,18 @@ h3 {
     border: 1px solid #ddd !important;
   }
 }
-.inputDropdownPrimary, .inputDropdownGreen, .inputDropdownOrange {
+.inputDropdownIngredient, .inputDropdownAppareil, .inputDropdownUstensil {
   border: none;
   border-radius: 5px 0 0 5px;
   padding: 1rem;
   color: #FFFFFF;
   font-family: "Lato";
 }
-.inputDropdownPrimary:focus, .inputDropdownGreen:focus, .inputDropdownOrange:focus {
+.inputDropdownIngredient:focus, .inputDropdownAppareil:focus, .inputDropdownUstensil:focus {
   box-shadow: none;
   color: #FFFFFF;
 }
-.inputDropdownPrimary::placeholder, .inputDropdownGreen::placeholder, .inputDropdownOrange::placeholder {
+.inputDropdownIngredient::placeholder, .inputDropdownAppareil::placeholder, .inputDropdownUstensil::placeholder {
   font-family: "Lato";
   font-style: normal;
   font-weight: bold;
@@ -8257,7 +8257,7 @@ h3 {
   color: #FFFFFF;
 }
 
-.btnDropdownPrimary, .btnDropdownGreen, .btnDropdownOrange {
+.btnDropdownIngredient, .btnDropdownAppareil, .btnDropdownUstensil {
   border-radius: 0 5px 5px 0;
   padding: 1rem;
 }
@@ -8328,6 +8328,33 @@ header {
   border: none;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+
+.none {
+  display: none;
+}
+
+.btnGreen {
+  background-color: #68D9A4 !important;
+  border-color: #68D9A4 !important;
+}
+
+.btnBlue {
+  background-color: #3282F7 !important;
+  border-color: #3282F7 !important;
+}
+
+.btnOrange {
+  background-color: #ED6454 !important;
+  border-color: #ED6454 !important;
+}
+
 /** Search bar */
 .inputGroupBorder {
   background: #E7E7E7;
@@ -8385,7 +8412,6 @@ header {
 }
 
 .dropdownSearch {
-  width: 200px;
   padding-bottom: 0;
   margin-left: 1rem;
 }
@@ -8394,72 +8420,74 @@ header {
   display: none;
 }
 
-.inputDropdownPrimary, .inputDropdownGreen, .inputDropdownOrange {
+.inputDropdownIngredient, .inputDropdownAppareil, .inputDropdownUstensil {
   background: #3282F7;
 }
 
-.inputDropdownGreen {
+.inputDropdownAppareil {
   background: #68D9A4;
 }
 
-.inputDropdownOrange {
+.inputDropdownUstensil {
   background: #ED6454;
 }
 
-.inputDropdownPrimary:focus {
+.inputDropdownIngredient:focus {
   background: #3282F7;
 }
 
-.inputDropdownGreen:focus {
+.inputDropdownAppareil:focus {
   background: #68D9A4;
 }
 
-.inputDropdownOrange:focus {
+.inputDropdownUstensil:focus {
   background: #ED6454;
 }
 
-.btnDropdownPrimary, .btnDropdownGreen, .btnDropdownOrange {
+.btnDropdownIngredient, .btnDropdownAppareil, .btnDropdownUstensil {
   background: #3282F7;
 }
 
-.btnDropdownGreen {
+.btnDropdownAppareil {
   background: #68D9A4;
 }
 
-.btnDropdownOrange {
+.btnDropdownUstensil {
   background: #ED6454;
 }
 
 .dropDownList {
   display: none;
+  columns: 4;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  width: 200px;
   margin-top: -3px;
   position: absolute;
   z-index: 20;
+  width: max-content;
 }
 .dropDownList li a {
   font-family: "Lato";
   color: #FFFFFF;
   margin-top: 3px;
   border-radius: 5px;
-  padding: 16px;
+  margin-top: 0px;
+  padding: 10px;
   text-decoration: none;
   display: block;
   border: none;
 }
 
-#dropdownPrimaryList {
+#dropdownIngredientList {
   background-color: #3282F7;
 }
 
-#dropdownGreenList {
+#dropdownAppareilList {
   background-color: #68D9A4;
 }
 
-#dropdownOrangeList {
+#dropdownUstensilList {
   background-color: #ED6454;
 }
 
@@ -8490,8 +8518,20 @@ header {
   line-height: 14px;
   margin: 0;
 }
+.card-ingredients li {
+  margin-top: 3px;
+}
 .card-ingredients span {
   font-weight: normal;
+}
+
+#recipes-not-found {
+  display: none;
+  background: #E7E7E7;
+  padding: 2rem;
+  margin: 0;
+  font-family: "Lato";
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
