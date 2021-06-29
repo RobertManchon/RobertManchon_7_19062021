@@ -12,7 +12,7 @@ body {
 header {
 	font-family: Lato, sans-serif;
 	text-align: center;
-	width: 100%;
+	/*width: 100%;*/
 }
 
 header img {
@@ -26,8 +26,7 @@ html {
 	font-family: Lato, 'Helvetica Neue', Arial, sans-serif;
 	font-size: 1rem;
 	font-weight: 400;
-	margin-left: 2rem;
-	margin-right: 2rem;
+
 }
 
 @media screen and (min-width: 900px) {

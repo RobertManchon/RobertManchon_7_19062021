@@ -3,10 +3,36 @@
     color: #68D9A4;
 }
 
+#ingredients>button:hover {
+    background-color: #0751bc;
+}
+
+#ingredientTag>i:hover {
+    color: #0751bc;
+}
+
+#appareil>button:hover {
+    background-color: #2caf72;
+}
+
+#appareilTag>i:hover {
+    color: #2caf72;
+}
+
+#ustensiles>button:hover {
+    background-color: #dd2c17;
+}
+
+#ustensileTag>i:hover {
+    color: #dd2c17;
+}
+
+
+
 #closeIngredientsFilter,
 #closeAppareilFilter,
 #closeUstensilesFilter {
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     left: 32rem;
     position: absolute;
     top: 1.8rem;
@@ -39,12 +65,12 @@
 #ustensiles>button {
     align-items: center;
     border: none;
-    border-radius: .3125rem;
+    border-radius: 0.3rem;
     color: #ffff;
     cursor: pointer;
     display: flex;
-    font-size: 1.125rem;
-    height: 4.3125rem;
+    font-size: 1.1rem;
+    height: 4.3rem;
     justify-content: space-between;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -60,15 +86,15 @@
     height: fit-content;
     justify-content: space-evenly;
     list-style: none;
-    padding: .5rem;
+    padding: 0.5rem;
 }
 
 #ingredientsExample>li,
 #appareilExample>li,
 #ustensilesExample>li {
-    font-size: 1.21rem;
+    font-size: 1.2rem;
     overflow: hidden;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     text-align: start;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -92,11 +118,11 @@
     border: none;
     border-radius: 5px;
     color: #ffff;
-    font-family: Lato;
+    font-family: Lato, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    height: 4.3125rem;
+    height: 4.3rem;
     outline: none;
     padding: 2rem;
     width: 100%;
@@ -105,7 +131,7 @@
 #tagsBadges {
     display: flex;
     justify-content: flex-start;
-    margin-left: 2rem;
+    margin-left: 2.5rem;
 }
 
 #tagsBadges>#appareilTag,
@@ -131,13 +157,13 @@
 
 #tagsBadges>span {
     align-items: center;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     color: #fff;
     cursor: default;
     display: none;
     justify-content: space-between;
-    margin: 0.5rem 1rem .25rem 0;
-    padding: .5rem 1rem;
+    margin: 0.5rem 1rem 0.25rem 0;
+    padding: 0.5rem 1rem;
     width: fit-content;
 }
 
