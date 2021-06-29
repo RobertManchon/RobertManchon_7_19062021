@@ -64,3 +64,6 @@
     height: 11.1rem;
     width: 23.7rem;
 }
+#resultMessage>i:hover {
+    transform: scale(1.1);
+}

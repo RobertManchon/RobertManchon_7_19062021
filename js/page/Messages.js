@@ -1,63 +1,39 @@
 'use strict';
 
-import DomService from './DomService.js';
-import Messages from './Messages.js';
-import Utils from '../utilities/Utils.js';
+export default class Messages {
+    static resultMessage = document.getElementById('resultMessage');
+    static resultSpan = document.querySelector('#resultMessage > span');
 
-export default class Badges {
-    static hiddenIngredientsFilter = document.querySelector('#hiddenIngredientsFilter');
-    static hiddenAppareilFilter = document.querySelector('#hiddenAppareilFilter');
-    static hiddenUstensilesFilter = document.querySelector('#hiddenUstensilesFilter');
-
-    // displays a badge containing the tag of the ingredient/appliance/ustensil that the user has selected
-    static buildTags(elt, tag) {
-        this.pushDownButtonsFilter();
-        this.displayTag(elt);
-        this.fillTag(elt, tag);
+    // displays the message with the number of recipes corresponding to the search
+    static buildResultMessageWithResult(recipes) {
+        this.displayMessage();
+        this.resultMessage.style.backgroundColor = '#c4dcff'
+        this.resultSpan.innerHTML = recipes.length + ' recette(s) correspond(ent) à votre recherche';
+        this.hideMessageOnClick();
         return this;
     }
 
-    static displayTag(elt) {
-        return elt.style.display = 'flex';
+    // displays the message indicating to the user that no recipe matches the search
+    static buildResultMessageWithNoResult() {
+        this.displayMessage();
+        this.resultMessage.style.backgroundColor = '#FFE9A5';
+        this.resultSpan.innerHTML = 'Aucune recette ne correspond à votre recherche... Vous pouvez chercher "tarte aux pommes", "poisson", etc.';
+        return this;
     }
 
-    // fill in the selected tag
-    static fillTag(elt, tag) {
-        return elt.innerHTML = tag + ` <i class='far fa-times-circle'></i>`;
+    // displays the message containing the number of recipes
+    static displayMessage() {
+        return this.resultMessage.style.display = 'flex';
     }
 
-    // remove the tag and replace the ingredient/appliance/ustensil buttons
-    static hideTag(elt) {
-        this.pushUpButtonsFilter();
-
-        return elt.style.display = 'none';
+    // disappear the message containing the number of recipes
+    static hideMessage() {
+        return this.resultMessage.style.display = 'none';
     }
 
-    // push down the ingredient/appliance/ustensil buttons
-    static pushDownButtonsFilter() {
-        this.hiddenIngredientsFilter.style.top = '20rem';
-        this.hiddenAppareilFilter.style.top = '20rem';
-        this.hiddenUstensilesFilter.style.top = '20rem';
-    }
-
-    // push up the ingredient/appliance/ustensil buttons
-    static pushUpButtonsFilter() {
-        this.hiddenIngredientsFilter.style.top = '16.2rem';
-        this.hiddenAppareilFilter.style.top = '16.2rem';
-        this.hiddenUstensilesFilter.style.top = '16.2rem';
-    }
-
-    static removeTagsOnClick(tag, event, eltBadge, recipes) {
-        tag.addEventListener('click', () => {
-            this.resetSection(event, eltBadge, recipes);
+    static hideMessageOnClick() {
+        document.querySelector("#resultMessage > i").addEventListener('click', () => {
+            return this.hideMessage();
         })
-    }
-
-    static resetSection(event, eltBadge, recipes) {
-        event.target.classList.remove('selected');
-        Utils.clearRecipesSection();
-        this.hideTag(eltBadge);
-        Messages.buildResultMessageWithResult(recipes);
-        DomService.buildResult(recipes);
     }
 }
