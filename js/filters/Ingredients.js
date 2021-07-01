@@ -6,69 +6,65 @@ import Search from '../search/Search.js';
 import Tags from '../page/Tags.js';
 import Utils from '../utilities/Utils.js';
 
-export default class Ustensils {
-    static ustensilsExample = document.getElementById('ustensilesExample');
+export default class Ingredients {
+    static ingredientsExample = document.getElementById('ingredientsExample');
 
-    static init(ustensils) {
-        Utils.clearFilters(this.ustensilsExample);
-        Buttons.launchButtons(document.querySelector("#ustensiles > button"),
-            document.querySelector("#openUstensilesFilter"),
-            document.querySelector("#closeUstensilesFilter"),
-            document.querySelector("#hiddenUstensilesFilter"));
-        this.fillUstensils(Utils.sortByTitle(ustensils));
-        this.searchInput(ustensils);
+    static init(ingredients, recipes) {
+        Utils.clearFilters(this.ingredientsExample);
+        Buttons.launchButtons(document.querySelector("#ingredients > button"),
+            document.querySelector("#openIngredientsFilter"),
+            document.querySelector("#closeIngredientsFilter"),
+            document.querySelector("#hiddenIngredientsFilter"));
+        this.fillIngredients(Utils.sortByTitle(ingredients));
+        this.filterByTags(recipes);
+        this.searchInput(ingredients, recipes);
         return this;
     }
 
-    // display the ustensils in the ustensils zone according to the recipes displayed in the 'recipes' section
-    static fillUstensils(ustensils) {
-        ustensils.forEach((ustensils) => {
-            let listUstensils = document.createElement('li');
+    // display the ingredients in the ingredients zone according to the recipes displayed in the 'recipes' section
+    static fillIngredients(ingredients) {
+        ingredients.forEach((ingredient) => {
+            let listIngredients = document.createElement('li');
 
-            listUstensils.innerHTML = `${Utils.upperText(ustensils)}`
-            this.ustensilsExample.appendChild(listUstensils);
-            listUstensils.classList.add('list-ustensiles');
-            listUstensils.setAttribute('data-filter', `${ustensils}`);
+            listIngredients.innerHTML = `${Utils.upperText(ingredient)}`
+            this.ingredientsExample.appendChild(listIngredients);
+            listIngredients.classList.add('list-ingredients');
+            listIngredients.setAttribute('data-filter', `${ingredient}`);
         });
     }
 
-    // allows to search for the ustensils in the input from the ustensils present in the recipes displayed
-    static searchInput(ustensils) {
-        document.getElementById('inputUstensiles').addEventListener('keyup', (key) => {
+    // allows to search for the ingredients in the input from the ingredients present in the recipes displayed
+    static searchInput(ingredients) {
+        document.getElementById('inputIngredients').addEventListener('keyup', (key) => {
             let valueSearch = key.target.value;
-            if (Utils.isValid(valueSearch)) {
-                Utils.clearFilters(this.ustensilsExample);
-                this.fillUstensils(Search.searchInputFilters(ustensils, valueSearch));
-                return;
-            }
-            Utils.clearFilters(this.ustensilsExample);
-            this.fillUstensils(Utils.sortByTitle(ustensils));
+            Utils.clearFilters(this.ingredientsExample);
+            this.fillIngredients(
+                Utils.isValid(valueSearch) ?
+                    Search.searchInputFilters(ingredients, valueSearch) :
+                    Utils.sortByTitle(ingredients));
         });
     }
 
     // gives the activated class to the selected tag and searches if it is present in the recipes
     static filterByTags(recipes) {
-        let ustensileTag = document.getElementById('ustensileTag');
+        let ingredientTag = document.getElementById('ingredientTag');
 
-        document.querySelectorAll('.list-ustensiles').forEach(filter => {
-            filter.addEventListener('click', (event) => {
-                let classValue = event.target.classList.value;
+        document.querySelector('#ingredientsExample').addEventListener('click', (event) => {
+            let classValue = event.target.classList.value;
 
-                if (-1 === classValue.indexOf('selected')) {
-                    event.target.classList.add('selected');
-                    Buttons.hideButtonsOnClick(document.querySelector("#ustensiles > button"),
-                        document.querySelector("#openUstensilesFilter"),
-                        document.querySelector("#hiddenUstensilesFilter"))
-                    Tags
-                        .buildTags(ustensileTag, Utils.upperText(event.target.getAttribute('data-filter')))
-                        .removeTagsOnClick(document.querySelector("#ustensileTag > i"), event, ustensileTag, recipes);
-                    Messages.hideMessage();
-                    this.searchAndDisplayRecipesFiltered();
-                    return;
-                } else {
-                    Tags.resetSection(event, ustensileTag, recipes);
-                };
-            });
+            if (-1 === classValue.indexOf('selected')) {
+                event.target.classList.add('selected');
+                Buttons.hideButtonsOnClick(document.querySelector("#ingredients > button"),
+                    document.querySelector("#openIngredientsFilter"),
+                    document.querySelector("#hiddenIngredientsFilter"))
+                Tags
+                    .buildTags(ingredientTag, Utils.upperText(event.target.getAttribute('data-filter')))
+                    .removeTagsOnClick(document.querySelector("#ingredientTag > i"), event, ingredientTag, recipes);
+                this.searchAndDisplayRecipesFiltered();
+                return;
+            } else {
+                Tags.resetSection(event, ingredientTag, recipes);
+            };
         });
         return this;
     }
