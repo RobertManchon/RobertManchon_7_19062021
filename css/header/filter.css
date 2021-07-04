@@ -27,30 +27,6 @@
     color: #dd2c17;
 }
 
-#ingredients>button:hover {
-    background-color: #0751bc;
-}
-
-#ingredientTag>i:hover {
-    color: #0751bc;
-}
-
-#appareil>button:hover {
-    background-color: #2caf72;
-}
-
-#appareilTag>i:hover {
-    color: #2caf72;
-}
-
-#ustensiles>button:hover {
-    background-color: #dd2c17;
-}
-
-#ustensileTag>i:hover {
-    color: #dd2c17;
-}
-
 
 
 #closeIngredientsFilter,
@@ -116,7 +92,7 @@
 .listUlIng>li,
 .listUlApp>li,
 .listUlUst>li {
-    font-size: 1.2rem;
+    font-size: 1.21rem;
     overflow: hidden;
     padding: 0.5rem 1rem;
     text-align: start;
@@ -142,7 +118,7 @@
     border: none;
     border-radius: 5px;
     color: #ffff;
-    font-family: Lato;
+    font-family: Lato, serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
