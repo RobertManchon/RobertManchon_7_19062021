@@ -1,37 +1,76 @@
 'use strict';
 
-export default class DataLogic {
-    // get all the ingredients to make them appear by default, before searching
-    static getAllIngredients(ing) {
-        let ingredients = [];
-        ing.forEach((recipe) => {
-            recipe.ingredients.forEach((ing) => {
-                if (!ingredients.includes(ing.ingredient.toLowerCase()))
-                    ingredients.push(ing.ingredient.toLowerCase());
-            });
-        });
-        return ingredients;
+export default class Utils {
+    // search starts from 3 characters
+    static isValid(value) {
+        return value.length > 2;
     }
 
-    // get all the appliances to make them appear by default, before searching
-    static getAllAppliances(app) {
-        let appliances = [];
-        app.forEach((recipe) => {
-            if (!appliances.includes(recipe.appliance.toLowerCase()))
-                appliances.push(recipe.appliance.toLowerCase());
-        });
-        return appliances;
+    // transform the text into lowercase
+    static normalizeText(text) {
+        return text
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
     }
 
-    // get all the ustensils to make them appear by default, before searching
-    static getAllUstensils(ust) {
-        let ustensils = [];
-        ust.forEach((recipe) => {
-            recipe.ustensils.forEach((ustensil) => {
-                if (!ustensils.includes(ustensil.toLowerCase()))
-                    ustensils.push(ustensil.toLowerCase());
-            });
+    // transform the text into uppercase
+    static upperText(text) {
+        return text
+            .charAt(0)
+            .toUpperCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") +
+            text
+            .substring(1)
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    static clearRecipesSection() {
+        return document.getElementById('mainContent').innerHTML = '';
+    }
+
+    static clearFilters(elt) {
+        return elt.innerHTML = '';
+    }
+
+    // Collect all the ingredients/appliance/ustensils, and sort them alphabetically
+    static sortByTitle(array) {
+        let arrayNoSort = [...new Set(array)];
+        let arraySort = arrayNoSort.sort((a, b) => {
+            if (a.toLowerCase() < b.toLowerCase()) {
+                return -1;
+            } else if (a.toLowerCase() > b.toLowerCase()) {
+                return 1;
+            }
+        })
+
+        return arraySort;
+    }
+
+    // get the elements holding the 'activated' class
+    static getFiltersWithClassActivated() {
+        let currentFilters = document.querySelectorAll('li.selected');
+        let filterSelected = [];
+
+        currentFilters.forEach(function (currentFilter) {
+            filterSelected.push(Utils.normalizeText(currentFilter.getAttribute("data-filter")));
         });
-        return ustensils;
+
+        return filterSelected;
+    }
+
+    static showRecipesFiltered(elt) {
+        return elt.forEach(e => {
+            e.style.display = 'block';
+        });
+    }
+
+    static hideRecipesFiltered(elt) {
+        return elt.forEach(e => {
+            e.style.display = 'none';
+        });
     }
 }
