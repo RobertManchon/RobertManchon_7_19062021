@@ -17,7 +17,7 @@ body {height: 100%;
   margin: 0;
   font-size: 14px;
   overflow-x: hidden;
-  font-family: DM Sans;
+  font-family: DM Sans, sans-serif;
 }
 
 ul {
@@ -45,7 +45,7 @@ header {
 }
 
 .p-05 {
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 .no-border {
   border: none;
@@ -83,14 +83,13 @@ header {
   background: $grey;
   border: none;
   border-radius: 5px 0 0 5px;
-  padding: .75rem;
+  padding: 0.75rem;
 }
 .inputGroupBorder::placeholder {
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  text-align: center;
   line-height: 22px;
   color: $black;
   opacity: 0.25;
@@ -101,7 +100,7 @@ header {
 .buttonGroupBorder {
   background: $grey;
   border-radius: 0 5px 5px 0;
-  padding: .75rem;
+  padding: 0.75rem;
 }
 
 .btnDefault {
@@ -125,10 +124,7 @@ header {
   margin-left: 0.25rem;
 }
 
-
-/*--------------------------------------------------------------
-#  DROPDOWN SEARCH
---------------------------------------------------------------*/
+/*  DROPDOWN SEARCH */
 .contents {
   display: contents;
 }
@@ -189,7 +185,6 @@ header {
     color: $white;
     margin-top: 3px;
     border-radius: 5px;
-    margin-top: 0px;
     padding: 10px;
     text-decoration: none;
     display: block;
@@ -207,7 +202,7 @@ header {
   background-color: $orange;
 }
 
-/** END DROPDOWN SEARCH */
+/* END DROPDOWN SEARCH */
 
 
 .card-body-style {

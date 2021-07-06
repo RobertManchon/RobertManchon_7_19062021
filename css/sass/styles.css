@@ -8293,7 +8293,7 @@ body {
   margin: 0;
   font-size: 14px;
   overflow-x: hidden;
-  font-family: DM Sans;
+  font-family: DM Sans, sans-serif;
 }
 
 ul {
@@ -8364,11 +8364,10 @@ header {
 }
 
 .inputGroupBorder::placeholder {
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  text-align: center;
   line-height: 22px;
   color: #000000;
   opacity: 0.25;
@@ -8404,9 +8403,7 @@ header {
   margin-left: 0.25rem;
 }
 
-/*--------------------------------------------------------------
-#  DROPDOWN SEARCH
---------------------------------------------------------------*/
+/*  DROPDOWN SEARCH */
 .contents {
   display: contents;
 }
@@ -8472,7 +8469,6 @@ header {
   color: #FFFFFF;
   margin-top: 3px;
   border-radius: 5px;
-  margin-top: 0px;
   padding: 10px;
   text-decoration: none;
   display: block;
@@ -8491,7 +8487,7 @@ header {
   background-color: #ED6454;
 }
 
-/** END DROPDOWN SEARCH */
+/* END DROPDOWN SEARCH */
 .card-body-style {
   background: #E7E7E7;
   border-radius: 0 0 5px 5px;
