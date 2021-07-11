@@ -80,3 +80,46 @@ let createCard = (recipe) => {
 }
 
 recipesArray.forEach(recipe => createCard(recipe));
+
+
+//PRINCIPAL SEARCH
+//function sets to extract and sort all keywords
+//sorting functions
+let quickSort = (array, left, right) => {
+    let index;
+    if (array.length > 1) {
+        index = partition(array, left, right); //take index from partition
+        if (left<index-1) { //more elements on the left
+            quickSort(array, left, index-1);
+        }
+        if (index<right) { //more elements on the right
+            quickSort(array, index, right);
+        }
+    }
+    return array;
+}
+//function to swap position
+let swap = (items, leftIndex, rightIndex) => {
+    var temp = items[leftIndex];
+    items[leftIndex] = items[rightIndex];
+    items[rightIndex] = temp;
+}
+//partition code, to make a left and right elements list
+let partition = (array, left, right) => {
+    let pivot = array[Math.floor((right + left) / 2)]; //middle element
+
+    while (left <= right) {
+        while (array[left].localeCompare(pivot) < 0) {
+            left++;
+        }
+        while (array[right].localeCompare(pivot) > 0) {
+            right--;
+        }
+        if (left <= right) {
+            swap(array, left, right);
+            left++;
+            right--;
+        }
+    }
+    return left;
+}
