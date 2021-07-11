@@ -1,4 +1,4 @@
-const recipesJson = [
+export const recipes = [
     {
         "id": 1,
         "name" : "Limonade de Coco",
@@ -75,7 +75,7 @@ const recipesJson = [
         "ingredients": [
             {
                 "ingredient": "Poulet",
-                "quantity" : 1          
+                "quantity" : 1
             },
             {
                 "ingredient": "Lait de coco",
@@ -146,34 +146,34 @@ const recipesJson = [
         "name": "Tarte au thon",
         "servings": 4,
         "ingredients":[
-           {
-               "ingredient": "Pâte feuilletée",
-               "quantity": 1 
-           },
-           {
-               "ingredient": "Thon en miettes",
-               "quantity": 130,
-               "unit": "grammes"
-           },
-           {
+            {
+                "ingredient": "Pâte feuilletée",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Thon en miettes",
+                "quantity": 130,
+                "unit": "grammes"
+            },
+            {
                 "ingredient": "Tomate",
                 "quantity": 2
-           },
-           {
-               "ingredient": "Crème fraiche",
-               "quantity": 2,
-               "unit": "cuillères à soupe"
-           },
-           {
-               "ingredient": "gruyère râpé",
-               "quantity": 100,
-               "unit": "grammes"
-           },
-           {
+            },
+            {
+                "ingredient": "Crème fraiche",
+                "quantity": 2,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "gruyère râpé",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
                 "ingredient": "Moutarde de Dijon",
                 "quantity": 1,
                 "unite": "cuillères à soupe"
-           }
+            }
         ],
         "time": 45,
         "description": "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
@@ -226,7 +226,7 @@ const recipesJson = [
             {
                 "ingredient": "Pâte sablée",
                 "quantity": 1
-            }, 
+            },
             {
                 "ingredient": "Chocolat au lait",
                 "quantity": 300,
@@ -256,37 +256,37 @@ const recipesJson = [
         "name": "Brownie",
         "servings": 10,
         "ingredients":[
-           {
+            {
                 "ingredient": "Noix",
                 "quantity": "180",
                 "unit": "grammes"
-           },
-           {
-               "ingredient": "Chocolat noir",
-               "quantity": 150,
-               "unit": "grammes"
-           },
-           {
-               "ingredient": "Beurre",
-               "quantity": 120,
-               "unit": "grammes"
-           },
-           {
+            },
+            {
+                "ingredient": "Chocolat noir",
+                "quantity": 150,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 120,
+                "unit": "grammes"
+            },
+            {
                 "ingredient": "Oeuf",
                 "quantity": 2
-           },
-           {
-               "ingredient": "Sucre en Poudre",
-               "quantity": "110",
-               "unit": "grammes"
-           },
-           {
+            },
+            {
+                "ingredient": "Sucre en Poudre",
+                "quantity": "110",
+                "unit": "grammes"
+            },
+            {
                 "ingredient": "farine",
                 "quantity": 90,
                 "unit": "grammes"
-           }
+            }
 
-        ], 
+        ],
         "time": 60,
         "description": "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
         "appliance": "Four",
@@ -314,9 +314,9 @@ const recipesJson = [
             },
             {
                 "ingredient": "Huile d'olive"
-            }, 
+            },
             {
-                "ingredient": "Basilic"    
+                "ingredient": "Basilic"
             }
         ],
         "time": 15,
@@ -377,7 +377,7 @@ const recipesJson = [
                 "ingredient": "Jambon de parme",
                 "quantity": 4,
                 "unit": "tranches"
-            }, 
+            },
             {
                 "ingredient": "Pommes",
                 "quantity": 1
@@ -423,7 +423,7 @@ const recipesJson = [
         ],
         "time": 40,
         "description": "Éplucher les fruits et les couper en morceaux, les mettre dans une casserolle en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
-        "appliance": "Casserole",
+        "appliance": "Casserolle",
         "ustensils": ["couteau", "économe"]
     },
     {
@@ -459,7 +459,7 @@ const recipesJson = [
         ],
         "time":40,
         "description":"Cuire les pommes de terre environ 30 minutes. Découper les échalottes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
-        "appliance": "Casserole",
+        "appliance": "Casserolle",
         "ustensils":["couteau","saladier","cuillère en bois"]
     },
     {
@@ -740,7 +740,7 @@ const recipesJson = [
         ],
         "time": 30,
         "description":"Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.",
-        "appliance": "Casserolle.",
+        "appliance": "Casserolle",
         "ustensils":["Cuillère en bois", "louche", "couteau"]
     },
     {
@@ -1297,7 +1297,7 @@ const recipesJson = [
                 "quantity": 50,
                 "unit": "grammes"
             }
-            
+
         ],
         "time": 60,
         "description":"Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé",
@@ -1418,7 +1418,7 @@ const recipesJson = [
         "description":"Séparer les blancs d'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des verres. Mettre au frais",
         "appliance": "Casserolle",
         "ustensils":["fouet", "spatule", "verres"]
-    }, 
+    },
     {
         "id": 42,
         "name": "Charlotte au poires",
@@ -1480,7 +1480,7 @@ const recipesJson = [
         "description":"Préchauffez le fours à 200°. Etaler la pate. La mettre dans un moule. Battre les oeufs avec le sucre. Ajouter le jus de citron et le beurre. Verser le tout sur la pate. Au four 30 minutes. Bon appetit ",
         "appliance": "Four",
         "ustensils":["rouleau à patisserie", "moule à tarte", "presse citron"]
-    }, 
+    },
     {
         "id": 44,
         "name": "Crème déssert au chocolat",
@@ -1721,286 +1721,4 @@ const recipesJson = [
         "appliance": "Four",
         "ustensils":["rouleau à patisserie","fouet"]
     }
-];
-/*
-//Fetch data from json file
-fetch('/data/recipes.json')
-.then(response => {
-    return response.json();
-})
-.then(data => {
-    setArrayOfRecipes(data);
-    setArray(data);
-    setRecipesHTML(data);
-})
-.catch(err => {
-    console.log(err);
-});
-*/
-let arrayOfRecipes = [];
-let arrayOfIngredients = [];
-let arrayOfAppliance = [];
-let arrayOfUstensils = [];
-let recipesByAppliance, recipesByIngredients, recipesByUstensils = [];
-let arrayOfRecipesFilteredByTag, arrayOfRecipesFilteredByText = [];
-
-
-const setArrayOfRecipes = (recipes) => arrayOfRecipes = recipes;
-
-//Init the array of appareil, ustensils, ingredients
-const setArray = (recipes) => {
-    recipes.forEach(r => {
-        //Init appareil list, push only if not present in arrayOfAppliance
-        if(arrayOfAppliance.indexOf(r.appliance) === -1) arrayOfAppliance.push(r.appliance);
-        //Init ustanciles lists, push only if not includes in arrayOfUstensils
-        r.ustensils.map((ustensil) => { 
-            if(!arrayOfUstensils.includes(ustensil)) arrayOfUstensils.push(ustensil); 
-        });    
-        //Init list of ingredients, push only if not present in arrayOfIngredients
-        r.ingredients.forEach(i => {
-            if(arrayOfIngredients.indexOf(i.ingredient) === -1){
-                arrayOfIngredients.push(i.ingredient);
-            }
-        });
-    });
-    setTags();
-};
-
-//Init tags in dropdown list HTML
-const setTags = () => {
-    //Add list of ingrédient
-    arrayOfIngredients.forEach((ingredient, index) => {
-        $('#dropdownIngredientList').append(`<li><a href="#" id="ingredient-${index}">${ingredient}</a></li>`);
-    });
-    //Add list of appliance (appareil)
-    arrayOfAppliance.forEach((appliance, index) => {
-        $('#dropdownAppareilList').append(`<li><a href="#" id="appliance-${index}">${appliance}</a></li>`);
-    });
-    //Add list of ustanciles
-    arrayOfUstensils.forEach((ustensil, index) => {
-        $('#dropdownUstensilList').append(`<li><a href="#" id="ustensil-${index}">${ustensil}</a></li>`);
-    });
-};
-
-//Add HTML Recipes
-const setRecipesHTML = (recipes) => {
-    let recipesList = $('#recipes');    
-    recipes.forEach((r, index) => {
-        recipesList.append(`
-            <div class="col-md-4 recipe recipeId-${r.id}">
-                <div class="card mb-4 box-shadow no-border">
-                    <img class="card-img-top" src="./img/bg-recipe.png" alt="Card image cap" />
-                    <div class="card-body card-body-style">
-                        <div class="d-flex justify-content-between">
-                            <label class="card-title">${r.name}</label>
-                            <div class="card-time"><img src="./img/clock-icon.png" class="icon clockIcon" /> <span>${r.time} min</span></div>
-                        </div>
-                        <div class="row d-flex justify-content-between">
-                            <ul class="col-md-6 card-ingredients" id="id-card-ingredients-${r.id}"></ul>
-                            <small class="col-md-6 card-description">${r.description}</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `);
-        //Init list of ingredients, push only if not present in arrayOfIngredients
-        //Add ingredient HTML associate to recipe ID
-        r.ingredients.forEach(i => $(`#id-card-ingredients-${r.id}`).append(`<li>${i.ingredient}: <span>${i.quantity ? i.quantity : ''} ${i.unit ? i.unit : ''}</span></li>`));
-    });
-};
-
-//use constante recipesJson, for prod
-setArrayOfRecipes(recipesJson);
-setArray(recipesJson);
-setRecipesHTML(recipesJson);
-
-//Show / Hide dropdown list
-const toggleDropdownList = (dropdownList) => {
-    $(`#${dropdownList}`).toggle(); 
-    if($(`#${dropdownList}`)[0].style.display == 'block') toggleIconDropdown(true);
-    else toggleIconDropdown(false);
-};
-
-// Toggle icon of input
-const toggleIconDropdown = (showList) => {
-    let boolShowList = showList;
-    // Icon is up if value is found
-    if(boolShowList){
-        $(".icon-dropdown-down").css("display", "none");
-        $(".icon-dropdown-up").css("display", "inherit");        
-    } else {
-        // Default icon is down
-        $(".icon-dropdown-down").css("display", "inherit");
-        $(".icon-dropdown-up").css("display", "none");        
-    }
-};
-
-// Show / Hide tag on dropdown list
-const filterByDropdownText = (inputElem, dropdownList) => {
-    let input, filter, ul, li, a, i, txtValue;
-    let foundValue = [];
-
-    //"dropdownInputPrimary"
-    input = document.getElementById(inputElem);
-    filter = input.value.toUpperCase();
-
-    if(input.value.length >= 3){
-        $(`#${dropdownList}`).css("display", "flex");
-        ul = document.getElementById(dropdownList);
-        li = ul.getElementsByTagName("li");
-
-        for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("a")[0];
-            txtValue = a.textContent || a.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                foundValue.push(true);
-                li[i].style.display = "";
-            } else {
-                foundValue.push(false);
-                li[i].style.display = "none";
-            }
-            if(i == li.length -1){
-                if(foundValue.includes(true)) {
-                    toggleIconDropdown(foundValue.includes(true));
-                } else {
-                    toggleIconDropdown(false);
-                }
-            }
-        }
-    } else {
-        //Reset all dropdownList
-        ul = document.getElementById(dropdownList);
-        li = ul.getElementsByTagName("li");
-        for (i = 0; i < li.length; i++) {
-            li[i].style.display = 'inherit';
-        }
-        $(`#${dropdownList}`).css("display", "none");
-        toggleIconDropdown(false);
-    }
-};
-
-//Add tag and filter
-let arrayOfTagId = [];
-let arrayOfTagValue = [];
-$(".dropDownList").on("click", "li", function(event){
-    let tagList = $("#tags");
-    let colorBtn;
-    let delegateTarget = event.delegateTarget.id;
-
-    if(!arrayOfTagId.includes(event.target.id)){
-        arrayOfTagId.push(event.target.id); //For delete tag
-        arrayOfTagValue.push(event.target.text); //For filter list of recipes
-
-        if(delegateTarget == 'dropdownIngredientList') colorBtn = 'btnBlue';
-        if(delegateTarget == 'dropdownAppareilList') colorBtn = 'btnGreen';
-        if(delegateTarget == 'dropdownUstensilList') colorBtn = 'btnOrange';
-        tagList.append(`
-            <button type="button" class="btn btn-info btnDefault ${colorBtn} ${event.target.id}" 
-                onclick="deleteTagById('${event.target.id}')">
-                ${event.target.text} 
-                <img src="./img/remove-icon.png" class="icon removeIcon" alt="Remove icon"/>
-            </button>
-        `);
-    }
-    filterRecipesByTags(arrayOfTagValue);
-});
-
-//Show list by text field
-//Recherche des recettes dans : le titre de la recette, la liste des ingrédients de la recette, la description de la recette
-const filterAllByText = () => {
-    
-    let searchValue = document.getElementById("inputSearchAll").value.toLowerCase();
-
-    if(searchValue.length >= 3) {
-        arrayOfRecipesFilteredByText = arrayOfRecipesFilteredByTag && arrayOfRecipesFilteredByTag.size > 0 ? [...arrayOfRecipesFilteredByTag] : arrayOfRecipes;
-        
-        //Search recipe by appliance or name
-        recipesByAppliance = arrayOfRecipesFilteredByText.filter(currentElement => {
-            return currentElement.appliance.toLowerCase().includes(searchValue) || currentElement.name.toLowerCase().includes(searchValue) || currentElement.description.toLowerCase().indexOf(searchValue) >= 0;
-        });
-        
-        //Search recipe by ingredients
-        recipesByIngredients = arrayOfRecipesFilteredByText.filter(r => r.ingredients.filter(i => i.ingredient.toLowerCase().includes(searchValue)).length > 0);
-        
-        //Search recipe by ustensils
-        recipesByUstensils = arrayOfRecipesFilteredByText.filter(r => {
-            return r.ustensils.some(u => u.toLowerCase().includes(searchValue));
-        });
-
-        arrayOfRecipesFilteredByText = new Set([].concat(recipesByAppliance, recipesByIngredients, recipesByUstensils));
-        
-        if(arrayOfRecipesFilteredByText.size == 0) {
-            $('#recipes-not-found').css('display', 'block');
-            $('.recipe').hide();
-        } else {
-            showHideRecipesFiltered(arrayOfRecipesFilteredByText);
-        }
-    } else if (searchValue.length <= 2 && arrayOfRecipesFilteredByTag && arrayOfRecipesFilteredByTag.size > 0){
-        showHideRecipesFiltered(arrayOfRecipesFilteredByTag);
-    }  else {
-        $('.recipe').show();
-    }
-};
-
-//Filter recipes by tags
-const filterRecipesByTags = (tags) => {
-    if(tags.length > 0){
-        arrayOfRecipesFilteredByTag = arrayOfRecipesFilteredByText && arrayOfRecipesFilteredByText.size > 0 ? [...arrayOfRecipesFilteredByText] : arrayOfRecipes;
-
-        //Filter list of recipes by appliance
-        recipesByAppliance = arrayOfRecipes.filter(currentElement => {
-            return tags.includes(currentElement.appliance || currentElement.name);
-        });
-        //Filter list of recipes by ingredients
-        recipesByIngredients = arrayOfRecipes.filter(r => r.ingredients.filter(i => tags.indexOf(i.ingredient) >= 0).length > 0);
-        //Filter list of recipes by ustensils
-        recipesByUstensils = arrayOfRecipes.filter(r => {
-            return r.ustensils.some(u => tags.indexOf(u) >= 0);
-        });
-    
-        arrayOfRecipesFilteredByTag = new Set([].concat(recipesByAppliance, recipesByIngredients, recipesByUstensils));
-        if(arrayOfRecipesFilteredByTag.size == 0) {
-            $('#recipes-not-found').css('display', 'block');
-            $('.recipe').hide();
-        } else {
-            showHideRecipesFiltered(arrayOfRecipesFilteredByTag);
-        }
-    } else if (arrayOfRecipesFilteredByText && arrayOfRecipesFilteredByText.size > 0){
-            showHideRecipesFiltered(arrayOfRecipesFilteredByText);
-    } else {
-        $('.recipe').show();
-    }
-};
-
-//Show and Hide recipes rather than tags
-const showHideRecipesFiltered = (recipes) => {
-    if(recipes){
-        $('.recipe').hide();
-        recipes.forEach(r => {
-            $(`.recipeId-${r.id}`).show();
-        });
-    } else {
-        $('.recipe').show();
-    }
-};
-
-//Remove tag
-const deleteTagById = (elemId) => {
-    for( var i = 0; i < arrayOfTagId.length; i++){ 
-        if ( arrayOfTagId[i] === elemId) { 
-            $(`.${elemId}`).remove();
-            arrayOfTagValue.splice(i, 1);
-            arrayOfTagId.splice(i, 1);
-            if(arrayOfTagValue && arrayOfTagValue.length == 0) arrayOfRecipesFilteredByTag = [];
-            filterRecipesByTags(arrayOfTagValue);
-        }
-    }
-};
-
-//Transform to Kebab case (some-text)
-const toKebabCase = str =>
-  str &&
-  str
-    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-    .map(x => x.toLowerCase())
-.join('-');
+]

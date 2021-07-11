@@ -1,123 +1,109 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta content="Les petits plats, outil de recettes de cuisine" name="description" />
     <meta content="Les petits plats, outil de recettes de cuisine, Marmiton, 750g" name="keywords" />
     <meta name="author" content="Robert MANCHON" />
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="icon" href="./img/favicon.ico"/>
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/327869b14d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/styles.css">
     <title>Les petits plats</title>
 </head>
 
 <body>
-<header class="header">
-    <div class="container">
-        <div class="jumbotron-heading headerImgTitle">
-            <a href="./index.html"><img src="./img/logo.png" alt="Logo les petits plats" /></a>
-            <h1 class="headerTitle">Les petits plats</h1>
-        </div>
 
-        <!-- Search bar-->
-        <form>
-            <div class="input-group p-05">
-                <input id="inputSearchAll" type="text" class="form-control inputGroupBorder" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" onkeyup="filterAllByText()">
-                <div class="input-group-btn">
-                    <button class="btn btn-default buttonGroupBorder" type="submit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
+<div class="container-fluid">
+
+    <div class="row">
+        <nav class="col navbar navbar-expand">
+            <a class="navbar-brand mx-auto d-block mt-4" href="index.html">
+                <img src="https://res.cloudinary.com/dlbeahxzz/image/upload/v1625131481/logo-les-petits-plats_jl9v9e.png" width="300" alt="Les Petits Plats Homepage">
+            </a>
+        </nav>
     </div>
 
-    <div class="mt-3"></div>
 
-    <!-- List of tag -->
-    <section class="container" id="tags"></section>
-
-    <div class="mt-3"></div>
-
-    <!-- Dropdown -->
-    <section class="container">
-        <div class="row">
-            <!-- Dropdown ingrédient -->
-            <div class="col-md-3 contents">
-                <div class="dropdown dropdownSearch">
-                    <div class="input-group w-200 p-05 pb-0 ">
-                        <input type="text" class="form-control inputDropdownIngredient" placeholder="Ingrédient"
-                               id="dropdownInputIngredient" onkeyup="filterByDropdownText('dropdownInputIngredient', 'dropdownIngredientList')"
-                               aria-label="Ingrédient listes" aria-describedby="basic-addon2">
-                        <div class="input-group-btn" onclick="toggleDropdownList('dropdownIngredientList')">
-                            <button class="btn btn-default btnDropdownIngredient" type="submit">
-                                <img src="./img/dropdown-icon-down.png" class="icon" alt="Dropdown down icon" id="icon-dropdown-down"  />
-                                <img src="./img/dropdown-icon-up.png" class="icon" alt="Dropdown up icon" id="icon-dropdown-up" />
-                            </button>
-                        </div>
-                    </div>
-                    <ul class="dropDownList" id="dropdownIngredientList"></ul>
-                </div>
-            </div>
-
-            <!-- Dropdown appareil -->
-            <div class="col-md-3 contents">
-                <div class="dropdown dropdownSearch">
-                    <div class="input-group w-200 p-05 pb-0">
-                        <input type="text" class="form-control inputDropdownAppareil" placeholder="Appareil"
-                               class="dropDownList" id="dropdownInputAppareil" onkeyup="filterByDropdownText('dropdownInputAppareil', 'dropdownAppareilList')"
-                               aria-label="Appareil listes" aria-describedby="basic-addon2">
-                        <div class="input-group-btn" onclick="toggleDropdownList('dropdownAppareilList')">
-                            <button class="btn btn-default btnDropdownAppareil" type="submit">
-                                <img src="./img/dropdown-icon-down.png" class="icon" alt="Dropdown down icon" id="icon-dropdown-down"  />
-                                <img src="./img/dropdown-icon-up.png" class="icon" alt="Dropdown up icon" id="icon-dropdown-up" />
-                            </button>
-                        </div>
-                    </div>
-                    <ul class="dropDownList" id="dropdownAppareilList"></ul>
-                </div>
-            </div>
-
-            <!-- Dropdown ustensil -->
-            <div class="col-md-3 contents">
-                <div class="dropdown dropdownSearch">
-                    <div class="input-group w-200 p-05 pb-0 ">
-                        <input type="text" class="form-control inputDropdownUstensil" placeholder="Ustensiles"
-                               id="dropdownInputUstensil" onkeyup="filterByDropdownText('dropdownInputUstensil', 'dropdownUstensilList')"
-                               aria-label="Ustensiles listes" aria-describedby="basic-addon2">
-                        <div class="input-group-btn" onclick="toggleDropdownList('dropdownUstensilList')">
-                            <button class="btn btn-default btnDropdownUstensil" type="submit">
-                                <img src="./img/dropdown-icon-down.png" class="icon" alt="Dropdown down icon" id="icon-dropdown-down"  />
-                                <img src="./img/dropdown-icon-up.png" class="icon" alt="Dropdown up icon" id="icon-dropdown-up" />
-                            </button>
-                        </div>
-                    </div>
-                    <ul class="dropDownList" id="dropdownUstensilList"></ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-</header>
-
-<div class="mt-3"></div>
-
-
-<main role="main">
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row" id="recipes"></div>
-            <div class="well" id="recipes-not-found">
-                <p>Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc</p>
+    <div class="row">
+        <div class="col input-group input-group-lg mx-5 mb-4" id="autocomplete">
+            <input class="form-control" id="search-input" type="text" name="search-input" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+            <div class="input-group-append">
+                <span id="launch-search" class="input-group-text">
+					<i class="fas fa-search"></i>
+				</span>
             </div>
         </div>
     </div>
-</main>
+
+    <div id="selected-tags" class="mx-5">
+
+    </div>
+
+    <div class="btn-group ml-3 ml-md-5 mt-3">
+        <div class="dropdown-parent">
+            <button id="ingredients-tag-btn" class="btn btn-primary btn-lg mx-2 tag-btn show" type="button">Ingrédients
+                <span class="fas fa-chevron-down"></span>
+            </button>
+            <div class="opened-btn-container bg-primary">
+                <div id="ingredients-search" class="btn btn-primary tag-search">
+                    <input id="ingredients-tag-input" class="form-control bg-primary tag-search-input" type="text" name="search-ingredient" placeholder="Rechercher un ingrédient">
+                    <span class="fas fa-chevron-up mr-2 align-self-center"></span>
+                </div>
+                <div class="container-tag-options bg-primary">
+                    <ul class="dropdown-choices" id="ingredients-dropdown">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown-parent">
+            <button id="appliances-tag-btn" class="btn bg-green btn-lg mx-2 tag-btn show" type="button">Appareils
+                <span class="fas fa-chevron-down"></span>
+            </button>
+            <div class="opened-btn-container">
+                <div id="appliances-search" class="btn bg-green tag-search">
+                    <input id="appliances-tag-input" class="form-control bg-green tag-search-input" type="text" name="search-appliance" placeholder="Rechercher un appareil">
+                    <span class="fas fa-chevron-up mr-2 align-self-center"></span>
+                </div>
+                <div class="container-tag-options bg-green">
+                    <ul class="dropdown-choices bg-green" id="appliances-dropdown">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown-parent">
+            <button id="utensils-tag-btn" class="btn bg-orange btn-lg mx-2 tag-btn show" type="button">Ustensiles
+                <span class="fas fa-chevron-down"></span>
+            </button>
+            <div class="opened-btn-container">
+                <div id="utensils-search" class="btn bg-orange tag-search">
+                    <input id="utensils-tag-input" class="form-control bg-orange tag-search-input" type="text" name="search-utensil" placeholder="Rechercher un ustensile">
+                    <span class="fas fa-chevron-up mr-2 align-self-center"></span>
+                </div>
+                <div class="container-tag-options bg-orange">
+                    <ul class="dropdown-choices bg-orange" id="utensils-dropdown">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-deck pl-4">
+        <div class="d-flex flex-wrap" id="main">
+
+        </div>
+    </div>
+
+</div>
 
 <footer class="text-muted">
     <div class="container">
@@ -129,10 +115,11 @@
 </footer>
 
 
-<script src="./vendor/jquery-3.2.1.slim.min.js"></script>
-<script src="./vendor/bootstrap.min.js"></script>
-<script src="./vendor/holder.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="module" src="recipe-rawdata.js"></script>
+<script type="module" src="script.js"></script>
 
-<script src="./js/script.js"></script>
 </body>
 </html>
