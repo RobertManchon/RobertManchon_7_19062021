@@ -107,7 +107,6 @@ let swap = (items, leftIndex, rightIndex) => {
 //partition code, to make a left and right elements list
 let partition = (array, left, right) => {
     let pivot = array[Math.floor((right + left) / 2)]; //middle element
-
     while (left <= right) {
         while (array[left].localeCompare(pivot) < 0) {
             left++;
@@ -270,4 +269,82 @@ let autocomplete = (input, arr, minLength) => {
 let searchInput = document.getElementById("search-input");
 //implement the function on key press
 autocomplete(searchInput, searchOptions, 2);
+//simple binary search, to give the first found result
+let binarySearch = (array, target) => {
+    let start = 0;
+    let end = array.length-1;
+    if (start > end) {
+        return -1;
+    }
+    while(start <= end) {
+        let middleIndex = Math.floor((start+end)/2);
+        if (array[middleIndex].keyword.toLowerCase().includes(target.toLowerCase())) {
+            return middleIndex;
+        } else if (target.toLowerCase().localeCompare(array[middleIndex].keyword.toLowerCase()) < 0) {
+            end = middleIndex - 1;
+        } else if (target.toLowerCase().localeCompare(array[middleIndex].keyword.toLowerCase()) > 0) {
+            start = middleIndex +1;
+        } else {
+            return -1;
+        }
+    }
+}
+
+//binary search to get the range of all fitting result
+let binarySearchMultiple = (array, target) => {
+    let firstMatch = binarySearch(array, target);
+    let resultArr = [-1, -1];
+    if (firstMatch == -1) {
+        return resultArr;
+    }
+
+    let leftMost = firstMatch;
+    let rightMost = firstMatch;
+
+    if (firstMatch >= 0) {
+        while (leftMost > 0 && array[leftMost-1].keyword.includes(target)) {
+            leftMost--;
+        }
+        while (rightMost < array.length-1 && array[rightMost+1].keyword.includes(target)) {
+            rightMost++;
+        }
+    }
+
+    resultArr[0] = leftMost;
+    resultArr[1] = rightMost;
+
+    let allSelectedIndex = [];
+    for (let i=resultArr[0]; i<=resultArr[1]; i++) {
+        allSelectedIndex.push(i);
+    }
+
+    let selectedIds = [];
+    allSelectedIndex.forEach(index => {
+        selectedIds.push(array[index].ids);
+    });
+
+    return [...new Set(selectedIds.flat())].sort(function(a,b) {return a-b});
+}
+
+//searching function
+let launchSearch = (e) => {
+    let mainSection = document.getElementById("main");
+    if (searchInput.value.length > 2) {
+        mainSection.innerHTML = "";
+        let input = e.target.value.toLowerCase();
+        let selectedArr = binarySearchMultiple(keywordObjectArray, input);
+
+        if (selectedArr.length > 0) {
+            selectedArr.forEach(recipeId => {
+                createCard(recipesArray[recipeId-1]);
+            });
+        } else {
+            mainSection.innerHTML = "<p id='noresult-msg'>Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>";
+        }
+    } else {
+        mainSection.innerHTML = "";
+        recipesArray.forEach(recipe => createCard(recipe));
+    }
+}
+searchInput.addEventListener("keyup", function(e) {launchSearch(e)});
 
