@@ -185,3 +185,89 @@ let keywordArray = (arr) => {
 
 let keywordObjectArray = keywordArray(searchOptions);
 console.log(keywordObjectArray);
+
+//autocomplete function
+let autocomplete = (input, arr, minLength) => {
+    let currentFocus; //to catch when user input something new
+
+    input.addEventListener("input", function(e) {
+        if (input.value.length > minLength) {
+            let val = this.value;
+            //take out all of current autocompleted values
+            closeLists();
+            if (!val) { return false;}
+            currentFocus = -1;
+            //create div element that will contain the suggestions
+            let a = create("div", {class: "autocomplete-items", id: this.id+"-autocomplete-lists"});
+            //append to parent element
+            this.parentNode.appendChild(a);
+            ///iterate the array
+            for (let i=0; i<arr.length; i++) {
+                if (arr[i].substr(0, val.length).toLowerCase() == val.toLowerCase()) {
+                    let b = create("p");
+                    b.textContent = arr[i];
+                    //when click on the value
+                    b.addEventListener("click", function() {
+                        //insert value
+                        input.value = this.textContent;
+                        launchSearch(e);
+                        //close list
+                        closeLists();
+                    });
+                    a.appendChild(b);
+                }
+            }
+        } else {
+            closeLists();
+        }
+    });
+    //execute function on keydown
+    input.addEventListener("keydown", function(e) {
+        let x = document.getElementById(this.id + "-autocomplete-lists");
+        if (x) x = x.getElementsByTagName("p");
+        if (e.keyCode == 40) { //key down
+            currentFocus++;
+            addActive(x);
+        } else if (e.keyCode == 38) { //key up
+            currentFocus--;
+            addActive(x)
+        } else if (e.keyCode == 13) { //enter
+            e.preventDefault();
+            if (currentFocus > -1) {
+                if (x) x[currentFocus].click();
+            }
+        } else if (e.keyCode == 27) { //escape
+            closeLists();
+        }
+    });
+    let addActive = (x) => {
+        if (!x) return false;
+        //remove other active class
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        //add active class
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+    let removeActive = (x) => {
+        for (let i=0; i<x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
+    let closeLists = (element) => {
+        let x = document.getElementsByClassName("autocomplete-items");
+        for (let i=0; i<x.length; i++) {
+            if (element != x[i] && element != input) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+    document.addEventListener("click", function(e) {
+        closeLists(e.target);
+    })
+
+}
+let searchInput = document.getElementById("search-input");
+//implement the function on key press
+autocomplete(searchInput, searchOptions, 2);
+
