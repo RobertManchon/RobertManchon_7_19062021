@@ -348,3 +348,131 @@ let launchSearch = (e) => {
 }
 searchInput.addEventListener("keyup", function(e) {launchSearch(e)});
 
+
+//tag filtering functions
+//function to add items for dropdown options
+let addItem = (array, parentElm) => {
+    array.forEach(item => {
+        let option = create("li", {class: "dropdown-item"});
+        option.textContent = item.charAt(0).toUpperCase() + item.slice(1);
+        parentElm.appendChild(option);
+    })
+}
+//search function on tag buttons
+let tagSearch = (input, options) => {
+    input.addEventListener("input", function(e) {
+        for (let i=0; i<options.length; i++) {
+            if (!options[i].textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+                options[i].style.display = "none";
+            } else {
+                options[i].removeAttribute("style");
+            }
+        }
+    })
+}
+
+let openDropdown = (btn, className, parentElm, inputId, optionsArray) => {
+    //close other open dropdowns, if any
+    closeAllDropdowns();
+    //current dropdown DOM
+    let dropdownContainer = document.getElementById(parentElm);
+    //empty current dropdown
+    dropdownContainer.textContent = "";
+    //take available tag options from DOM
+    let choices = Array.from(document.querySelectorAll(className));
+    let choicesArr = [];
+    choices.forEach(choice => {
+        choicesArr.push(choice.textContent);
+    })
+    let optionsArr = [...new Set(choicesArr)];
+    //put into dropdown options
+    addItem(optionsArr, dropdownContainer);
+    //search input DOM
+    let inputField = document.getElementById(inputId);
+    //run keyword search function
+    tagSearch(inputField, Array.from(document.querySelectorAll(optionsArray)));
+    inputField.parentElement.classList.add("show");
+    inputField.parentNode.parentElement.classList.add("show");
+    dropdownContainer.parentElement.classList.add("show-opts");
+    btn.style.display = "none";
+};
+//implement the function
+//ingredient tag
+document.getElementById("ingredients-tag-btn").addEventListener("click", function(e) {openDropdown(e.target, ".ingredient", "ingredients-dropdown", "ingredients-tag-input", "#ingredients-dropdown .dropdown-item")});
+//appliances tag
+document.getElementById("appliances-tag-btn").addEventListener("click", function(e) {openDropdown(e.target, ".appliance", "appliances-dropdown", "appliances-tag-input", "#appliances-dropdown .dropdown-item")});
+//utensils tag
+document.getElementById("utensils-tag-btn").addEventListener("click", function(e) {openDropdown(e.target, ".utensil", "utensils-dropdown", "utensils-tag-input", "#utensils-dropdown .dropdown-item")});
+
+//ingredients dropdown
+//tagSearch(document.getElementById("ingredients-tag-input"), Array.from(document.querySelectorAll("#ingredients-dropdown .dropdown-item")));
+tagSearch(document.getElementById("appliances-tag-input"), Array.from(document.querySelectorAll("#appliances-dropdown .dropdown-item")));
+tagSearch(document.getElementById("utensils-tag-input"), Array.from(document.querySelectorAll("#utensils-dropdown .dropdown-item")));
+//create selected tag button
+let createTag = (target) => {
+    let selectedTag = create("button", {class: "btn selected-tag-btn"});
+    selectedTag.innerHTML = target.textContent + "<span class='fas fa-times ml-2'></i>";
+    let computedStyle = getComputedStyle(target.parentNode.parentElement);
+    selectedTag.style.backgroundColor = computedStyle.getPropertyValue("background-color");
+    //put to DOM
+    document.getElementById("selected-tags").appendChild(selectedTag);
+}
+//function to filter by tag
+let filterByTag = (tag) => {
+    let recipeCards = Array.from(document.getElementsByClassName("recipe-card"));
+    let input = tag.textContent.toLowerCase();
+    for (let i = 0; i<recipeCards.length; i++) {
+        if (!recipeCards[i].hasAttribute("style")) {
+            if (!recipeCards[i].innerHTML.toLowerCase().includes(input)) {
+                recipeCards[i].style.display = "none";
+            } else {
+                recipeCards[i].removeAttribute("style");
+            }
+        }
+    }
+}
+//function to unfilter, NOT SURE WORKING PERFECTLY YET
+let unfilterTag = (tag) => {
+    let recipeCards = Array.from(document.getElementsByClassName("recipe-card"));
+    let input = tag.textContent.toLowerCase();
+    for (let i = 0; i<recipeCards.length; i++) {
+        if (recipeCards[i].hasAttribute("style") && !recipeCards[i].innerHTML.toLowerCase().includes(input)) {
+            recipeCards[i].removeAttribute("style");
+        }
+    }
+}
+//function when user click on a tag option
+document.addEventListener("click", function(e) {
+    if (e.target.matches(".dropdown-item")) { //selecting tag filter
+        createTag(e.target);
+        filterByTag(e.target);
+        closeAllDropdowns();
+    } else if (e.target.matches(".fa-times")) { //delete the selected tag
+        document.getElementById("selected-tags").removeChild(e.target.parentElement);
+        unfilterTag(e.target.parentElement);
+    } else if (e.target.matches(".tag-search-input")) { //prevent event bubble from clicking on input field
+        e.stopPropagation();
+        e.preventDefault();
+    } else if (e.target.matches(".fa-chevron-down")) { //prevent event bubble from clicking on down arrow
+        e.target.parentElement.click();
+    } else if (!e.target.matches(".tag-btn")) { //close dropdowns when click wherever
+        closeAllDropdowns();
+    }
+})
+
+//function to close all dropdowns
+let closeAllDropdowns = () => {
+    Array.from(document.getElementsByClassName("tag-btn")).forEach(btn => {btn.removeAttribute("style")});
+    Array.from(document.getElementsByClassName("tag-search")).forEach(item => {item.classList.remove("show")});
+    Array.from(document.getElementsByClassName("container-tag-options")).forEach(item => {item.classList.remove("show-opts")});
+    Array.from(document.getElementsByClassName("opened-btn-container")).forEach(item => {item.classList.remove("show")});
+    Array.from(document.getElementsByClassName("fa-chevron-down")).forEach(item => {item.removeAttribute("style")});
+}
+//close by clicking on arrow up
+Array.from(document.getElementsByClassName("fa-chevron-up")).forEach(item => {
+    item.addEventListener("click", function() {
+        closeAllDropdowns();
+    });
+});
+
+
